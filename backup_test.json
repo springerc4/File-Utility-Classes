@@ -1,0 +1,60 @@
+[
+    {
+        "first name": "Cameron",
+        "last name": "Springer",
+        "role": "ASE 230 Student",
+        "year": "sophomore",
+        "profile pic": "uploads\/Headshot.jpg",
+        "dream profession": "Data Analyst",
+        "dream company": "Netflix",
+        "email": "springerc4@nku.edu",
+        "short intro": "Hello, my name is Cameron Springer. I am currently a sophomore at Northern Kentucky University and majoring in Data Science. I have some prior experience in programming with Python, Java, and basic web design with HTML\/CSS. For recreation, I enjoy reading, watching movies, and playing disc golf.",
+        "quote": "\"The greatest enemy of knowledge is not ignorance. It is the illusion of knowledge.\"",
+        "author of quote": "- Stephen Hawking",
+        "skills": [
+            [
+                "Mathematics",
+                55
+            ],
+            [
+                "Web Design",
+                45
+            ],
+            [
+                "Public Speaking",
+                30
+            ]
+        ],
+        "fun fact": "I've never ridden a bike. Sometimes I refuse to learn just so I can have something unique to use for icebreakers and I also just haven't had any interest in learning. While it's still a small minority, some might be schocked by the 6% of American adults who don't know how to ride a bike.",
+        "date of birth": "2001-12-26"
+    },
+    {
+        "first name": "Brett",
+        "last name": "Thaman",
+        "role": "ASE 230 Student",
+        "year": "senior",
+        "profile pic": "https:\/\/bootdey.com\/img\/Content\/avatar\/avatar1.png",
+        "dream profession": "Professional Disc Golfer",
+        "dream company": "Innova",
+        "email": "thamanb1@nku.edu",
+        "short intro": "My name is Brett Thaman. I am a CIT major with the goal of going into software \r\n          development. I enjoy programming because I like the problem solving apsects of it. I hope that\r\n          this class will give me experience and help me learn more about web development.",
+        "quote": "\"Hello\"",
+        "author of quote": "- Brett Thaman",
+        "skills": [
+            [
+                "Python",
+                80
+            ],
+            [
+                "Java",
+                75
+            ],
+            [
+                "HTML",
+                65
+            ]
+        ],
+        "fun fact": "I was a saxophone player in the NKU jazz band.",
+        "date of birth": "1997-12-10"
+    }
+]
