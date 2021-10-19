@@ -48,8 +48,31 @@
     echo '<h4>Modify the Second Value in the First Entity in the JSON File and Print that Value</h4><br>';
     $new_json_value = 'Jeremy';
     $json_entity->modifyEntity($new_json_value, 0, 'last name');
-    $json_array = $json_array = $json_entity->readEntity();
+    $json_array = $json_entity->readEntity();
     print_r($json_array[0]['last name']);
+
+    echo '<br><br>';
+    // Modify an Entity in the CSV File
+    echo '<h4>Modify the First Value of the Third Entity in the CSV File and Print that Value</h4><br>';
+    $new_csv_value = 'that';
+    $csv_entity->modifyEntity($new_csv_value, 2, 0);
+    $csv_array = $csv_entity->readEntity();
+    print_r($csv_array[2][0]);
+
+    echo '<br><br>';
+    // Delete an Entity in the JSON File
+    echo '<h4>Delete the Second Entity in the JSON File and Display the Corresponding Array</h4><br>';
+    $json_entity->deleteEntity(1);
+    $json_array = $json_entity->readEntity();
+    print_r($json_array);
+
+    echo '<br><br>';
+    // Delete an Entity from the CSV File
+    echo '<h4>Delete the First Value of the First Entity in the CSV File and Display the Corresponding Array</h4><br>';
+    $csv_entity->deleteEntity(0, 0);
+    $csv_array = $csv_entity->readEntity();
+    print_r($csv_array);
+
 
 
 
