@@ -1,8 +1,8 @@
 <?php
-    require_once('CSVHelper.php');
+    require_once('../Helpers/CSVHelper.php');
     // Create a new CSVHelper object 
-    $CSV_file_helper_1 = new CSVHelper('random.CSV');
-    $backup = new CSVHelper('backup_random.CSV');
+    $CSV_file_helper_1 = new CSVHelper('../CSV/random.CSV');
+    $backup = new CSVHelper('../CSV/backup_random.CSV');
     $backup_array = $backup->readFile();
     $CSV_file_helper_1->writeFile($backup_array);
 
@@ -41,14 +41,8 @@
     // Modify Entire File
     echo '<h4>Modify entire array</h4><br>';
     $diff_array = [
-        [
             'cat',
             'dog'
-        ],
-        [
-            'mouse',
-            'deer'
-        ]
     ];
     $CSV_file_helper_1->modifyFile($diff_array);
     print_r($CSV_file_helper_1->readFile());
@@ -56,13 +50,15 @@
     echo '<br><br>';
     // Modify specific record
     echo '<h4>Modify one record in a CSV file</h4><br>';
-    $CSV_file_helper_1->modifyFile($diff_array, 0);
+    $new_record = array('Hello', 'Hi');
+    $CSV_file_helper_1->modifyFile($new_record, 0);
     print_r($CSV_file_helper_1->readFile());
 
     echo '<br><br>';
     // Modify one value in a record
     echo '<h4>Modify one value in a CSV record</h4><br>';
-    $CSV_file_helper_1->modifyFile($diff_array, 0, 1);
+    $new_record = 'Great';
+    $CSV_file_helper_1->modifyFile($new_record, 0, 1);
     print_r($CSV_file_helper_1->readFile());
 
     echo '<br><br>';
@@ -82,8 +78,8 @@
     echo '<br><br>';
     // Delete a specific value from a record
     echo '<h4>Delete first name from first record</h4><br>';
-    $CSV_file_helper_1->deleteFrom(0, );
-    print_r($CSV_file_helper_1->readFile(0));
+    $CSV_file_helper_1->deleteFrom(0, 2);
+    print_r($CSV_file_helper_1->readFile());
     $CSV_file_helper_1->writeFile($backup_array);
 
 ?>

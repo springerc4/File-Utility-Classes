@@ -1,8 +1,8 @@
 <?php
-    require_once('JSONHelper.php');
+    require_once('../Helpers/JSONHelper.php');
     // Create a new JSONHelper object 
-    $JSON_reader_1 = new JSONHelper('test.json');
-    $backup = new JSONHelper('backup_test.json');
+    $JSON_reader_1 = new JSONHelper('../JSON/test.json');
+    $backup = new JSONHelper('../JSON/backup_test.json');
     $backup_array = $backup->readFile();
     $JSON_reader_1->writeFile($backup_array);
 
@@ -24,18 +24,21 @@
     echo $last_name;
 
     echo '<br><br>';
-    // Write to JSON File
-    echo '<h4>Write to a JSON File</h4><br>';
+    // Write to JSON File 
+    echo '<h4>Write to a JSON File (Add Cam as first name)</h4><br>';
     $array[0]['first name'] = 'Cam';
     $JSON_reader_1->writeFile($array);
-    print_r($array);
+    print_r($array[0]);
 
     echo '<br><br>';
     // Append to JSON File
     echo '<h4>Append to a JSON File</h4><br>';
-    $new_record = ["first name" => "Carl", "last name" => "Monk"];
+    $new_record = array(
+        'first name' => "Carl", 
+        'last name' => "Monk"
+    );
     $JSON_reader_1->writeFile($new_record, true);
-    print_r($array);
+    print_r($array[1]);
 
     echo '<br><br>';
     // Modify Entire File

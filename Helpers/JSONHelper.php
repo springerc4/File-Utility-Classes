@@ -28,14 +28,19 @@ class JSONHelper {
     // Write to a JSON file 
     public function writeFile($array, $append = false) {
         $file = $this->file;
-        if ($append == true) {
+        if ($append) {
             $handle = fopen($file, 'a+');
+            $content = file_get_contents($file);
+            $data = json_decode($content);
+            $data[] = $array;
+            file_put_contents($file, json_encode($data));
+            fclose($handle);
         }
         else {
             $handle = fopen($file, 'w+');
+            fwrite($handle, json_encode($array, JSON_PRETTY_PRINT));
+            fclose($handle);
         }
-        fwrite($handle, json_encode($array, JSON_PRETTY_PRINT));
-        fclose($handle);
     }
 
     // Function for modifying information in the JSON file

@@ -17,12 +17,12 @@ class AuthHelper {
             return false;
         }
         // check if the file containing users exists
-        else if (!file_exists('users.txt')) {
+        else if (!file_exists('..\Auth txt Files\users.txt')) {
             echo 'Internal Error: Please Try Again Later';
             return false;
         }
         // check if the email is in the database already
-        else if ((new CSVHelper('users.txt'))->contains('users.txt', $email, 0)) {
+        else if ((new CSVHelper('..\Auth txt Files\users.txt'))->contains('..\Auth txt Files\users.txt', $email, 0)) {
             echo 'Email Already Registered';
             return false;
         }
@@ -31,7 +31,7 @@ class AuthHelper {
             $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
             $array = array($email, $encrypted_password);
             // Save the user in the database
-            $handle = fopen('users.txt', 'a+');
+            $handle = fopen('..\Auth txt Files\users.txt', 'a+');
             fputcsv($handle, $array, ';');
             fclose($handle);
             return true;
@@ -52,17 +52,17 @@ class AuthHelper {
             return false;
         }
         // 3. check if the file containing users exists
-        else if (!file_exists('users.txt')) {
+        else if (!file_exists('..\Auth txt Files\users.txt')) {
             echo 'Error';
             return false;
         }
         // 4. check if the email is registered
-        else if (!(new CSVHelper('users.txt'))->contains('users.txt', $email, 0)) {
+        else if (!(new CSVHelper('..\Auth txt Files\users.txt'))->contains('..\Auth txt Files\users.txt', $email, 0)) {
             echo 'User Not Found';
             return false;
         }
         // 5. check if the password is correct
-        else if (!$this->passwordMatch('users.txt', $password)) {
+        else if (!$this->passwordMatch('..\Auth txt Files\users.txt', $password)) {
             echo 'Password is Invalid';
             return false;
         }

@@ -1,7 +1,7 @@
 <?php
     session_start();
     $_SESSION['logged'] = false;
-    require_once('AuthHelper.php');
+    require_once('../Helpers/AuthHelper.php');
     $auth_helper = new AuthHelper();
 
     //Sign Up a user and check if logged
@@ -39,7 +39,7 @@
     echo '<br><br>';
     // Return the email of the second user in the database
     echo '<h4>Return the email of the second user in the database</h4><br>';
-    echo 'Email = '.$auth_helper->returnInfo('users.txt', 1, 0);
+    echo 'Email = '.$auth_helper->returnInfo('../Auth txt Files/users.txt', 1, 0);
 
 
 ?>

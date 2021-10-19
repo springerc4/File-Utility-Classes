@@ -17,10 +17,10 @@ class CSVHelper {
             $records[] = fgetcsv($handle, 1024, ';');
         }
         fclose($handle);
-        if ($element == null && $index == null) {
+        if (is_null($element) && is_null($index)) {
             return $records;
         }
-        else if($index == null && $element != null) {
+        else if(is_null($index) && !is_null($element)) {
             return $records[$element];
         }
         else {
@@ -53,7 +53,6 @@ class CSVHelper {
                 }
             }
             else {
-                print_r($array[$i]);
                 $line = implode(';', $array[$i]);
                 fwrite($handle, $line.PHP_EOL);
             }
@@ -79,11 +78,11 @@ class CSVHelper {
     // Function for deleting information from the JSON file
     public function deleteFrom($record = null, $index = null) {
         $array = $this->readFile();
-        if (is_null($record)) {
+        if (is_null($record) && is_null($index)) {
             $array = [];
         }
         else if (!is_null($record) && is_null($index)) {
-            $array[$record] = null;
+            $array[$record] = [];
             for ($i = $record; $i < count($array); $i++) {
                 if ($i == count($array) - 1) {
                     $array[$i] = null;
@@ -96,7 +95,7 @@ class CSVHelper {
             $array[$record][$index] = null;
             for ($i = $index; $i < count($array[$record]); $i++) {
                 if ($i == count($array[$record]) - 1) {
-                    $record[$i] = null;
+                    $array[$record][$i] = null;
                     break;
                 }
                 $array[$record][$i] = $array[$record][$i + 1];
