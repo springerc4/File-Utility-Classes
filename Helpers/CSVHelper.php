@@ -31,6 +31,7 @@ class CSVHelper {
     // Write to a CSV file 
     public function writeFile($array, $append = false) {
         $file = $this->file;
+        if (!file_exists($file)) return [];
         if ($append == true) {
             $handle = fopen($file, 'a');
         }
@@ -107,6 +108,7 @@ class CSVHelper {
     // Check if user email is active in csv file
     public function contains($file, $input) {
         $contains = false;
+        if (!file_exists($file)) return [];
         $handle = fopen($file, "r");
         while (!feof($handle)) {
             $record = fgetcsv($handle, 1024, ';');

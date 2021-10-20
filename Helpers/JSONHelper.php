@@ -28,6 +28,7 @@ class JSONHelper {
     // Write to a JSON file 
     public function writeFile($array, $append = false) {
         $file = $this->file;
+        if (!file_exists($file)) return [];
         if ($append) {
             $handle = fopen($file, 'a+');
             $content = file_get_contents($file);
